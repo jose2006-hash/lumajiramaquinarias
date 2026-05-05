@@ -1,0 +1,19 @@
+import type { Metadata } from 'next'
+import './globals.css'
+import { AuthProvider } from '@/lib/auth-context'
+
+export const metadata: Metadata = {
+  title: 'Lumajira Maquinarias — Plataforma IoT Inteligente',
+  description:
+    'Monitoreo en tiempo real de máquinas inyectoras con IA agéntica, predicción de fallas y control automático de parámetros.',
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="es">
+      <body>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
+    </html>
+  )
+}
