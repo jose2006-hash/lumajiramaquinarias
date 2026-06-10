@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import teamPhoto from '../assets/team.png';
 
 export default function SplashPage() {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ export default function SplashPage() {
       padding: '2rem',
     }}>
       <img
-        src={teamPhoto}
+        src="/team.png.png"
         alt="Equipo Lumajira Maquinarias"
         style={{
           width: '100%',
@@ -48,16 +47,11 @@ export default function SplashPage() {
       </div>
       <div style={{ display: 'flex', gap: '6px' }}>
         {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              background: '#1d4e8f',
-              animation: `pulse 1.4s ease-in-out ${i * 0.2}s infinite`,
-            }}
-          />
+          <div key={i} style={{
+            width: '8px', height: '8px', borderRadius: '50%',
+            background: '#1d4e8f',
+            animation: `pulse 1.4s ease-in-out ${i * 0.2}s infinite`,
+          }} />
         ))}
       </div>
       <style>{`
