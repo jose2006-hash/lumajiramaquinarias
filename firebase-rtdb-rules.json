@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "sensors": {
+      "$machineId": {
+        ".read": "auth != null",
+        ".write": true,
+        "sct013": {
+          ".indexOn": ["timestamp"]
+        }
+      }
+    }
+  }
+}
