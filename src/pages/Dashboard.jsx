@@ -31,8 +31,10 @@ export default function Dashboard() {
       if (!data) return;
       const list = Object.entries(data)
         .map(([k, v]) => ({ id: k, ...v }))
+        .filter((r) => typeof r.timestamp === 'number' && r.timestamp > 0)
         .sort((a, b) => a.timestamp - b.timestamp)
         .slice(-60);
+      if (list.length === 0) return;
       setReadings(list.map((r) => ({
         time: format(new Date(r.timestamp), 'HH:mm:ss'),
         value: parseFloat(r.current_a?.toFixed(2) || 0),
