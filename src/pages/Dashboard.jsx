@@ -24,8 +24,8 @@ export default function Dashboard() {
   }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    if (!selectedMachine) return;
-    const sensorRef = ref(rtdb, `sensors/${selectedMachine.id}/sct013`);
+    if (!selectedMachine || !user) return;
+    const sensorRef = ref(rtdb, `sensors/${user.uid}/sct013`);
     const unsub = onValue(sensorRef, (snap) => {
       const data = snap.val();
       if (!data) return;
@@ -50,7 +50,7 @@ export default function Dashboard() {
       }
     });
     return () => unsub();
-  }, [selectedMachine]);
+  }, [selectedMachine, user]);
 
   async function loadMachines() {
     if (!user) return;
